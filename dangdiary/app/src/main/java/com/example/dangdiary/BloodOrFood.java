@@ -47,6 +47,5 @@ public class BloodOrFood extends AppCompatActivity {
         });
 
 
-
     }
 }
