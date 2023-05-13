@@ -1,16 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:orientation="vertical">
+
 
     <TextView
+        android:id="@+id/blood_submit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text1"
-        android:textSize="30dp"
-        android:text="혈당등록페이지" />
+        android:gravity="center_horizontal"
+        android:text="혈당 등록"
+        android:textStyle="bold"
+        android:weight="10" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/check_date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="측정 날짜"
+            android:weight="5" />
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="295dp"
+            android:layout_height="136dp"
+            android:weight="3"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
+
+        <TextView
+            android:id="@+id/check_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="측정 시간"
+            android:weight="5" />
+
+
+        <!--        editText에서 inputType을 date time 으로 해서 한 번에 입력 받는 거 해보기-->
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="295dp"
+            android:layout_height="136dp"
+            android:timePickerMode="spinner"/>
+
+        <RadioGroup
+            android:id="@+id/time_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/breakfast_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아침"
+                android:weight="1"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/lunch_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점심"
+                android:weight="1"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/dinner_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저녁"
+                android:weight="1"></RadioButton>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/check_eatOrNot_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="식전/식후"
+            android:weight="5" />
+
+        <RadioGroup
+            android:id="@+id/eatOrNot_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/before_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식전"
+                android:weight="1"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/after_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식후"
+                android:weight="1"></RadioButton>
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/bloodsugar_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="혈당값"
+            android:weight="5" />
+
+        <EditText
+            android:id="@+id/bloodsugar_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="혈당값을 입력해주세요."
+            ></EditText>
+
+        <Button
+            android:id="@+id/bloodsugar_register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="등록"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+
+
+
 
 
 
