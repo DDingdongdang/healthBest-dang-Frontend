@@ -28,8 +28,8 @@ public class BloodOrFood extends AppCompatActivity {
         button_pblood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BloodOrFood.this,BloodRegister.class);//현재,이동 적기
-                startActivity(intent);
+                Intent intent1 = new Intent(BloodOrFood.this,BloodRegister.class);//현재,이동 적기
+                startActivity(intent1);
             }
 
         });
@@ -40,8 +40,8 @@ public class BloodOrFood extends AppCompatActivity {
         button_pfood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BloodOrFood.this,FoodRegister.class);//현재,이동 적기
-                startActivity(intent);
+                Intent intent2 = new Intent(BloodOrFood.this,FoodRegister.class);//현재,이동 적기
+                startActivity(intent2);
             }
 
         });
