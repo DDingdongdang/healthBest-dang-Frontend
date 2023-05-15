@@ -15,8 +15,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="혈당 등록"
+        android:layout_margin="40dip"
+
         android:textStyle="bold"
-        android:weight="10" />
+        android:textSize="40sp" />
 
 
     <LinearLayout
@@ -29,8 +31,7 @@
             android:id="@+id/check_date_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="측정 날짜"
-            android:weight="5" />
+            android:text="측정 날짜" />
 
         <DatePicker
             android:id="@+id/datePicker"
@@ -51,11 +52,12 @@
 
 
         <!--        editText에서 inputType을 date time 으로 해서 한 번에 입력 받는 거 해보기-->
+
         <TimePicker
             android:id="@+id/time_picker"
             android:layout_width="295dp"
             android:layout_height="136dp"
-            android:timePickerMode="spinner"/>
+            android:timePickerMode="spinner" />
 
         <RadioGroup
             android:id="@+id/time_radioGroup"
@@ -92,6 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="20dip"
             android:text="식전/식후"
             android:weight="5" />
 
@@ -124,6 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="20dip"
             android:text="혈당값"
             android:weight="5" />
 
