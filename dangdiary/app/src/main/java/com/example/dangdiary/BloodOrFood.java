@@ -28,7 +28,7 @@ public class BloodOrFood extends AppCompatActivity {
         button_pblood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(BloodOrFood.this,BloodRegister.class);//현재,이동 적기
+                Intent intent1 = new Intent(BloodOrFood.this, BloodRegister.class);//현재,이동 적기
                 startActivity(intent1);
             }
 
