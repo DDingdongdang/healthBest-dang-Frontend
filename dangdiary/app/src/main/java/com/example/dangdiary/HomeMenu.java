@@ -22,7 +22,6 @@ public class HomeMenu extends AppCompatActivity {
 
 
         //plus_btn 입력시 -> 혈당 식단 중 하나 고름
-
         button_plus = findViewById(R.id.btn_plus);
 
         button_plus.setOnClickListener(new View.OnClickListener() {
