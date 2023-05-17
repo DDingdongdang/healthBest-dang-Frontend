@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text1"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:text="회원가입 페이지" />
 
 
