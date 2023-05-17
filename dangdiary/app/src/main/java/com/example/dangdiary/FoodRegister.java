@@ -47,7 +47,7 @@ import java.util.Map;
 public class FoodRegister extends AppCompatActivity {
 
     private ImageView img;
-    private Button btn_capture, btn_gallery, btn_send;
+    private Button btn_capture, btn_gallery, btn_send, btn_write;
     private ProgressDialog progress;
 
     private RequestQueue queue;
@@ -67,6 +67,17 @@ public class FoodRegister extends AppCompatActivity {
         Intent intent = getIntent();
 
         init();
+
+        btn_write = findViewById(R.id.btn_write);
+
+        btn_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(FoodRegister.this, WriteFood.class);//현재,이동 적기
+                startActivity(intent1);
+            }
+
+        });
 
         btn_capture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -308,4 +319,6 @@ public class FoodRegister extends AppCompatActivity {
 
         return image;
     }
+
+
 }
