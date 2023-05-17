@@ -28,7 +28,7 @@ public class BloodRegister extends AppCompatActivity {
     Button datePicker_btn;
     Button timePicker_btn;
     EditText bloodsugar_editText;
-    int bloodsugar_submit; // 입력된 혈당 저장되는 곳
+
     Button bloodsugar_register_button;
 
     RadioGroup time_radioGroup;
@@ -147,12 +147,12 @@ public class BloodRegister extends AppCompatActivity {
 
         bloodsugar_register_button = findViewById(R.id.bloodsugar_register_button);
 
-            time_radioGroup = findViewById(R.id.time_radioGroup);
-            eatOrNot_radioGroup = findViewById(R.id.eatOrNot_radioGroup);
+        time_radioGroup = findViewById(R.id.time_radioGroup);
+        eatOrNot_radioGroup = findViewById(R.id.eatOrNot_radioGroup);
 
 
-            // 아침 점심 저녁 라디오 그룹에서 결과값 : selected_time에 저장
-            // -> 저장이 되는지는 어캐 확인하는지 모르겠음
+        // 아침 점심 저녁 라디오 그룹에서 결과값 : selected_time에 저장
+        // -> 저장이 되는지는 어캐 확인하는지 모르겠음
         time_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -172,7 +172,7 @@ public class BloodRegister extends AppCompatActivity {
         });
 
         //식전 식후 라디오그룹에서 결과값: selected_eatORNot에 저장
-            // -> 저장이 되는지는 어캐 확인하는지 모르겠음
+        // -> 저장이 되는지는 어캐 확인하는지 모르겠음
         eatOrNot_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -188,9 +188,10 @@ public class BloodRegister extends AppCompatActivity {
         });
 
 
-            // 입력받은 혈당값 bloodsugar_submit에 정수로 저장하기 -> 이거 넣으면? 화면이 안열림 왜이럴까?
-//        bloodsugar_editText = (EditText) findViewById(R.id.bloodsugar_editText);
-//        bloodsugar_submit = Integer.parseInt(bloodsugar_editText.getText().toString());
+        // 입력받은 혈당값 bloodsugar_submitted에 string으로 저장하기
+        bloodsugar_editText = (EditText) findViewById(R.id.bloodsugar_editText);
+        String bloodsugar_submitted = bloodsugar_editText.getText().toString();
+        //bloodsugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString()); // -> 이거 넣으면? 화면이 안열림 왜이럴까?
 
 
 
