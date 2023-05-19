@@ -62,6 +62,8 @@ public class FoodRegister extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //layout 넘어오기
         super.onCreate(savedInstanceState);
         setContentView(R.layout.foodregister);
         Intent intent = getIntent();
@@ -73,8 +75,8 @@ public class FoodRegister extends AppCompatActivity {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(FoodRegister.this, WriteFood.class);//현재,이동 적기
-                startActivity(intent1);
+                Intent intent3 = new Intent(FoodRegister.this, WriteFood.class);//현재,이동 적기
+                startActivity(intent3);
             }
 
         });
