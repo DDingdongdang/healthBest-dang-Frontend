@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".HomeMenu">
 
-<!--    상단 날짜 표시: id:today_layout-->
+    <!--    상단 날짜 표시: id:today_layout-->
     <RelativeLayout
         android:id="@+id/today_layout"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:layout_marginVertical="20dp"
         android:orientation="horizontal">
 
-<!--        // 추후에 onClick 메소드 넣기-->
+        <!--        // 추후에 onClick 메소드 넣기-->
         <Button
             android:id="@+id/main_back_btn"
             android:layout_width="wrap_content"
@@ -29,8 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textStyle="bold"
-            android:textSize="25dp"
             android:text="오늘 날짜" />
 
         <Button
@@ -43,46 +41,40 @@
     </RelativeLayout>
 
 
-<!--    //음식 메뉴 표시 - whatIEat_layout-->
-
-    <!--    <RelativeLayout-->
-<!--        android:id="@+id/whatIEat_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_below="@id/today_layout"-->
-<!--        android:layout_above="@id/yesterday_info"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <ImageView-->
-<!--                android:id = "@+id/food_pic"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--&lt;!&ndash;                android:src="@drawable/myimage"/>&ndash;&gt;-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--        </LinearLayout>-->
-
-<!--    </RelativeLayout>-->
-
-<!--    &lt;!&ndash;        // 하단에 나오는 어제의 건강 현황&ndash;&gt;-->
-
-    <ListView
+    <!--    음식 메뉴 표시 - whatIEat_layout-->
+    <RelativeLayout
         android:id="@+id/whatIEat_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:gravity="center"
         android:layout_below="@id/today_layout"
-        android:layout_above="@id/yesterday_info"/>
+        android:layout_above="@id/yesterday_info"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id = "@+id/food_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <!--                android:src="@drawable/myimage"/>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+    <!--        // 하단에 나오는 어제의 건강 현황-->
     <LinearLayout
         android:id="@+id/yesterday_info"
         android:layout_width="match_parent"
@@ -145,7 +137,7 @@
 
     </LinearLayout>
 
-<!--    하단 메뉴 표시-->
+    <!--    하단 메뉴 표시-->
     <LinearLayout
         android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
@@ -176,7 +168,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
-            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="➕" />
 
