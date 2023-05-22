@@ -18,7 +18,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dangdiary"
+
+        android:usesCleartextTraffic="true"
+
         tools:targetApi="31">
+
+        <!--cleartextTraffic -> http로 시작하는 사이트에 접근 하기 위해 사용 -->
 
         <activity
             android:name=".WriteFood"

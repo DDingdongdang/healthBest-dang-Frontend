@@ -5,40 +5,18 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/food_submit_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:text="식단 등록"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/et_str"
-        android:layout_marginTop="30dp"
-        android:hint="음식 이름 입력"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_posttest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="서버전송테스트"
-        android:onClick="mOnClick"
-        />
-
-
-<!--    <TextView
-        android:id="@+id/tx_str"
-        android:text="서버에서 온 글자"
-        android:textSize="20dp"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/text_view_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
 </LinearLayout>
+
