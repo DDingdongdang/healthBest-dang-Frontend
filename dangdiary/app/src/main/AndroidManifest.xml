@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dangdiary"
     xmlns:tools="http://schemas.android.com/tools">
-<!-- package 부분 내가 작성 ^^ ..-->
+    <!-- package 부분 내가 작성 ^^ ..-->
     <!--    안드로이드 4대 컴포넌트 (Activity, Service, Broadcast Receiver, Content Provider가 정의된 곳-->
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -62,7 +62,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
-
 
 
     </application>

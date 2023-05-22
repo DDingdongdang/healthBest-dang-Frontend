@@ -118,7 +118,7 @@ public class FoodRegister extends AppCompatActivity {
 
 
         //base64형태로 변환된 이미지 데이터를 플라스크 서버로 전송
-        String flask_url = "http://172.30.1.6:5000/sendFrame";
+        String flask_url = "http://localhost:8000/sendFrame";
         StringRequest request = new StringRequest(Request.Method.POST, flask_url,
                 new Response.Listener<String>() {
                     @Override
