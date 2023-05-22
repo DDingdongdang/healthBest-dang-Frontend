@@ -29,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textSize="25dp"
             android:text="오늘 날짜" />
 
         <Button
@@ -174,6 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
+            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="➕" />
 
