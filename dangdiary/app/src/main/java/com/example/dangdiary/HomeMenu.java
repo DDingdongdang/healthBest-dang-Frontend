@@ -133,9 +133,6 @@ public class HomeMenu extends AppCompatActivity {
     }
 
     // Adapter
-    class MyAdapter extends BaseAdapter{
-
-    }
 }
 
 
