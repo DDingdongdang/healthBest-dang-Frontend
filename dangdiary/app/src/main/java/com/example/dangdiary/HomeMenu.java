@@ -34,8 +34,8 @@ public class HomeMenu extends AppCompatActivity {
     private ListView whatIEat_layout;
 
     // 상단 날짜 조절 버튼
-    Button main_back_btn;
-    Button main_next_btn;
+    private Button main_back_btn;
+    private Button main_next_btn;
 
     TextView main_today_textview;
 
