@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom = "true"
-        android:margin="10dp"
+        android:layout_marginTop="10dp"
         android:background="#FFFFCC"
         android:orientation="vertical">
 
@@ -64,8 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="오늘의 적정 당 섭취량 진행 현황"
-            android:layout_margin="5dp"
-            android:TextStyle="bold"/>
+            android:layout_margin="5dp" />
 
         <ProgressBar
             android:id="@+id/progressbar"

@@ -29,7 +29,6 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -69,14 +68,12 @@
 
             <TextView
                 android:id="@+id/menuName"
-                android:weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="미역국" />
 
             <TextView
                 android:id="@+id/dangAmount"
-                android:weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="당량" />

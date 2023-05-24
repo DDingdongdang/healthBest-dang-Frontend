@@ -1,11 +1,13 @@
 package com.example.dangdiary;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -70,10 +72,12 @@ public class FoodView extends AppCompatActivity {
         main_today_textview = (TextView) findViewById(R.id.main_today_textview);
         main_today_textview.setText(getDateFunc());
 
-        FoodViewItemArrList.add(
-                new FoodViewItem(R.mipmap.ic_launcher,"아침", new Date(System.currentTimeMillis()), "미역국", 300)
-        );
-
+//        FoodViewItemArrList.add(new FoodViewItem(R.mipmap.ic_launcher,"아침", "미역국", 300));
+//
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            FoodViewItemArrList.add(new FoodViewItem(R.mipmap.ic_launcher,"아침", "미역국", 300));
+//            FoodViewItemArrList.add(new FoodViewItem(R.mipmap.ic_launcher,"아침", LocalDateTime.now(), "미역국", 300));
+        }
 
         // adapter 객체 생성 후 listview 객체에 setAdapter를 통해 Adapter 연결
         foodViewAdapter = new FoodViewAdapter(FoodView.this, FoodViewItemArrList);

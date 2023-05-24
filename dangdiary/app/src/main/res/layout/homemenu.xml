@@ -162,6 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
+            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="🏠" />
 
@@ -171,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
+            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="🩸" />
 
@@ -190,6 +192,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
+            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="🥦" />
 
@@ -199,6 +202,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
+            android:onClick="onClick"
             android:backgroundTint="#FFFFCC"
             android:text="🙋‍♂️"/>
 

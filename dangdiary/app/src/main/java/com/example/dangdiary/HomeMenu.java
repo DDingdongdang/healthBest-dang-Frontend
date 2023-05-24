@@ -73,21 +73,23 @@ public class HomeMenu extends AppCompatActivity {
             startActivity(intent1);
         }
 
-        // mypage 버튼 누르고 화면 이동 :: my page 파일 만들기!!
+
+
+         // food 버튼 누르고 화면 이동
+        if (view == btn_food){
+            Intent intent3 = new Intent(HomeMenu.this, FoodView.class);//현재,이동 적기
+            startActivity(intent3);
+        }
+
+         // mypage 버튼 누르고 화면 이동 :: my page 파일 만들기!!
 //        if (view == btn_mypage){
 //            Intent intent1 = new Intent(HomeMenu.this, myPage.class);//현재,이동 적기
 //            startActivity(intent1);
 //        }
 
-        // food 버튼 누르고 화면 이동
-//        if (view == btn_food){
-//            Intent intent1 = new Intent(HomeMenu.this, 식단조회페이지.class);//현재,이동 적기
-//            startActivity(intent1);
-//        }
-
-        // blood 버튼 누르고 화면 이동
+         //blood 버튼 누르고 화면 이동
 //        if (view == btn_blood){
-//            Intent intent1 = new Intent(HomeMenu.this, 혈당조회페이지.class);//현재,이동 적기
+//            Intent intent1 = new Intent(HomeMenu.this, bloodview.class);//현재,이동 적기
 //            startActivity(intent1);
 //        }
 
@@ -133,9 +135,9 @@ public class HomeMenu extends AppCompatActivity {
     }
 
     // Adapter
-    class MyAdapter extends BaseAdapter{
-
-    }
+//    class MyAdapter extends BaseAdapter{
+//
+//    }
 }
 
 

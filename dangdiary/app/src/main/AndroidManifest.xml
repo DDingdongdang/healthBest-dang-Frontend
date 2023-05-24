@@ -40,6 +40,12 @@
             android:name=".BloodOrFood"
             android:exported="false" />
         <activity
+            android:name=".FoodView"
+            android:exported="false"/>
+        <activity
+            android:name=".FoodViewItem"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
 

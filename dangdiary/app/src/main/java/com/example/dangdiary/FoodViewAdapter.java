@@ -57,7 +57,7 @@ public class FoodViewAdapter extends BaseAdapter {
         }
         meal_photo.setImageResource(FoodViewItemArrList.get(position).getFood_photo());
         mealType.setText(FoodViewItemArrList.get(position).getMealType());
-        mealTime.setText(FoodViewItemArrList.get(position).getInputTime().toString()); // localdatetime으로 받아온 것을 String 형태로 다시 바꿔줌
+        //mealTime.setText(FoodViewItemArrList.get(position).getInputTime().toString()); // localdatetime으로 받아온 것을 String 형태로 다시 바꿔줌
 //        amount.setText(FoodViewItemArrList.get(position).getAmount());
         dangAmount.setText(FoodViewItemArrList.get(position).getFoodSugar());
         menuName.setText(FoodViewItemArrList.get(position).getMenuName());

@@ -1,18 +1,30 @@
 package com.example.dangdiary;
 
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.time.LocalDateTime;
 
-public class FoodViewItem {
+public class FoodViewItem{
     private int food_photo;
     private String mealType;
-    private LocalDateTime inputTime;
+    //private LocalDateTime inputTime;
     private String menuName;
     private int foodSugar;
 
-    public FoodViewItem(int food_photo, String mealType, LocalDateTime inputTime, String menuName, int foodSugar){
+
+//    public FoodViewItem(int food_photo, String mealType, LocalDateTime inputTime, String menuName, int foodSugar){
+//        this.food_photo = food_photo;
+//        this.mealType = mealType;
+//        this.inputTime = inputTime;
+//        this.menuName = menuName;
+//        this.foodSugar = foodSugar;
+//    }
+
+    public FoodViewItem(int food_photo, String mealType, String menuName, int foodSugar){
         this.food_photo = food_photo;
         this.mealType = mealType;
-        this.inputTime = inputTime;
         this.menuName = menuName;
         this.foodSugar = foodSugar;
     }
@@ -28,12 +40,12 @@ public class FoodViewItem {
         return this.mealType;
     }
 
-    public void setInputTime(LocalDateTime inputTime){
-        this.inputTime = inputTime;
-    }
-    public LocalDateTime getInputTime(){
-        return this.inputTime;
-    }
+//    public void setInputTime(LocalDateTime inputTime){
+//        this.inputTime = inputTime;
+//    }
+//    public LocalDateTime getInputTime(){
+//        return this.inputTime;
+//    }
 
     public void setMenuName(String menuName){
         this.menuName = menuName;
