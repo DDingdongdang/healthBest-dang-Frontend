@@ -59,12 +59,14 @@ public class WriteFood extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //화면 전환
         super.onCreate(savedInstanceState);
         setContentView(R.layout.writefood);
         Intent intent = getIntent();
+
         textViewResult = findViewById(R.id.text_view_result); //결과가 나올 txt view
         Retrofit retrofit = new Retrofit.Builder() //retorfit 인스턴스 생성
-                .baseUrl("3.39.11.35:8080")//서버를 돌릴 ip주소 : port번호
+                .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
                 .addConverterFactory(GsonConverterFactory.create()) //json 데이터를 자바 객체로 변환
                 .build(); //Retrofit인스턴스를 만들고 반환
 
