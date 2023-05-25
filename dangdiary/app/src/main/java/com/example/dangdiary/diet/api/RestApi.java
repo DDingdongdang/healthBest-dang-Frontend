@@ -2,10 +2,13 @@ package com.example.dangdiary.diet.api;
 
 import com.example.dangdiary.diet.dto.Post;
 import com.example.dangdiary.diet.dto.SendFoodName;
+import com.example.dangdiary.diet.dto.FoodInfo;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
+import retrofit2.http.Query;
 
 /*public interface RestApi {
     @GET("/api/v1/test2")  ///api/v1/test2로 HTTP GET요청을 수행
@@ -18,8 +21,14 @@ public interface RestApi {
     //Call<List<Post>> getPosts();
 
     @GET("/api/v1/foods/info")
-    Call<SendFoodName> SendFoodName(@Body SendFoodName sendFoodName);
+    //Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);
+    Call<FoodInfo> SendFoodName(@Query("name") String foodName );
 
+    //Call<받는거> 함수이름 (@body 객체타입 객체이름
+
+
+    /*@HTTP(method = "GET", path="/api/v1/foods/info",hasBody = true)
+    Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);*/
 
 
 }
