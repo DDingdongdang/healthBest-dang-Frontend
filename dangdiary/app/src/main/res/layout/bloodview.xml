@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <!--    상단 날짜 표시: id:today_layout-->
+    <RelativeLayout
+        android:id="@+id/today_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginVertical="20dp"
+        android:orientation="horizontal">
+
+        <!--        // 추후에 onClick 메소드 넣기-->
+        <Button
+            android:id="@+id/main_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="전날"/>
+
+        <TextView
+            android:id="@+id/main_today_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:text="오늘 날짜" />
+
+        <Button
+            android:id="@+id/main_next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="다음날"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/todays_BloodSugarState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘의 혈당량 변화"
+        android:textSize="30dp"
+        android:layout_below="@id/today_layout"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:gravity = "center_horizontal"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todayMeal_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@id/todays_BloodSugarState"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
+
+
+</LinearLayout>

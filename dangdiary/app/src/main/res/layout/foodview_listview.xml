@@ -72,11 +72,53 @@
                 android:layout_height="wrap_content"
                 android:text="미역국" />
 
-            <TextView
-                android:id="@+id/foodSugar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="당량" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="당류: " />
+
+                <TextView
+                    android:id="@+id/foodSugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="g" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="탄수화물: " />
+
+                <TextView
+                    android:id="@+id/carbon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="g" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

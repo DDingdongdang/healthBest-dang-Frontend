@@ -73,7 +73,7 @@ public class FoodView extends AppCompatActivity {
         mList = new ArrayList<>();
         // recyclerView에 넣어줄 값들
         for(int i = 0; i<5; i++){
-            addItem("iconName","아침","미역국",300);
+            addItem("iconName","아침","미역국",300, 20.3);
         }
 
         System.out.print(mList);
@@ -84,16 +84,15 @@ public class FoodView extends AppCompatActivity {
 
     }
 
-    public void addItem(String food_photo, String mealType, String menuName, int dangAmount){
+    public void addItem(String food_photo, String mealType, String menuName, double dangAmount, double carbon){
         FoodViewItem item = new FoodViewItem();
         item.setFood_photo(food_photo);
         item.setMealType(mealType);
         item.setMenuName(menuName);
         item.setFoodSugar(dangAmount);
+        item.setCarbon(carbon);
 
         mList.add(item);
     }
-
-
 
 }

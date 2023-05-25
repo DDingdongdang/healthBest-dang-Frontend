@@ -19,6 +19,7 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
         //private LocalDateTime inputTime;
         TextView menuName;
         TextView foodSugar;
+        TextView carbon;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -28,6 +29,8 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
             mealType = (TextView) itemView.findViewById(R.id.mealType);
             menuName = (TextView) itemView.findViewById(R.id.menuName);
             foodSugar = (TextView) itemView.findViewById(R.id.foodSugar);
+            carbon = (TextView) itemView.findViewById(R.id.carbon);
+
         }
     }
 
@@ -58,6 +61,7 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
         holder.menuName.setText(item.getMenuName());
         holder.mealType.setText(item.getMealType());
         holder.foodSugar.setText(String.valueOf(item.getFoodSugar()));
+        holder.carbon.setText(String.valueOf(item.getCarbon()));
     }
 
     @Override
