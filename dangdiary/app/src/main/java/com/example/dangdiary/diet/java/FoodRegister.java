@@ -73,14 +73,13 @@ public class FoodRegister extends AppCompatActivity {
 
         btn_write = findViewById(R.id.btn_write);
 
-//        btn_write.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent3 = new Intent(FoodRegister.this, WriteFood.class);//현재,이동 적기
-//                startActivity(intent3);
-//            }
-//
-//        });
+       btn_write.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {Intent intent3 = new Intent(FoodRegister.this, WriteFood.class);//현재,이동 적기
+               startActivity(intent3);
+           }
+
+        });
 
         btn_capture.setOnClickListener(new View.OnClickListener() {
             @Override

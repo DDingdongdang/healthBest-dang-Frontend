@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.dangdiary.blood.java.BloodRegister;
 import com.example.dangdiary.diet.java.FoodRegister;
 
 public class BloodOrFood extends AppCompatActivity {

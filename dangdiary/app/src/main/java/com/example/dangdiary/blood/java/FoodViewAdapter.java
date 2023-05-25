@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.blood.java;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dangdiary.R;
 
 import java.util.ArrayList;
 

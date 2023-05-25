@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.blood.java;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dangdiary.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

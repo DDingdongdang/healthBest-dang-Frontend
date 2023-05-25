@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dangdiary.blood.java.FoodView;
+import com.example.dangdiary.blood.java.FoodViewItem;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
