@@ -41,6 +41,9 @@
     </RelativeLayout>
 
 
+
+
+
     <!--    음식 메뉴 표시 - whatIEat_layout-->
     <RelativeLayout
         android:id="@+id/whatIEat_layout"
@@ -80,7 +83,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottom_menu"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/cardview_dark_background"
         android:orientation="vertical">
 
@@ -98,18 +104,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="섭취한 총 당량:  "/>
+                android:text="섭취한 총 당량:  " />
 
             <TextView
                 android:id="@+id/ate_sugar_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="몇"/>
+                android:text="몇" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" mg"/>
+                android:text=" mg" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,18 +126,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="혈당 최고치:  "/>
+                android:text="혈당 최고치:  " />
 
             <TextView
                 android:id="@+id/max_bloodsugar_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="몇"/>
+                android:text="몇" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" mg/dl"/>
+                android:text=" mg/dl" />
         </LinearLayout>
 
 
