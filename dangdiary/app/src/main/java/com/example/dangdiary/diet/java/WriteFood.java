@@ -56,12 +56,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import com.example.dangdiary.BloodOrFood;
-import com.example.dangdiary.BloodRegister;
 import com.example.dangdiary.R;
 import com.example.dangdiary.diet.api.RestApi;
 import com.example.dangdiary.diet.dto.FoodInfo;
-import com.example.dangdiary.diet.dto.Post;
 import com.example.dangdiary.diet.dto.SendFoodName;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

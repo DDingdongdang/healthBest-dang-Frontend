@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.blood.java;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.dangdiary.HomeMenu;
+import com.example.dangdiary.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

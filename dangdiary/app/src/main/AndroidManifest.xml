@@ -35,7 +35,7 @@
             android:name=".diet.java.FoodRegister"
             android:exported="false" />
         <activity
-            android:name=".BloodRegister"
+            android:name=".blood.java.BloodRegister"
             android:exported="false" />
         <activity
             android:name=".HomeMenu"
@@ -44,7 +44,7 @@
             android:name=".BloodOrFood"
             android:exported="false" />
         <activity
-            android:name=".FoodView"
+            android:name=".blood.java.FoodView"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"
