@@ -49,7 +49,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import kotlinx.coroutines.channels.Send;
+//import kotlinx.coroutines.channels.Send;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -174,29 +174,29 @@ public class WriteFood extends AppCompatActivity {
 
 
 
-
-        call.enqueue(new Callback<Post>() { //enqueue() 메서드는 비동기적으로 요청을 실행(응답 기다리지X)
-            //Callback<List<Post>> -> 비동기적인 http 요청결과를 처리하는 메서드 정의
-
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                if (!response.isSuccessful()) {
-                    textViewResult.setText("Code: " + response.code());
-                    return;
-                }
-                Post post = response.body(); //응답을 처리하는 부분 List<post>형식으로 반환
-
-                String content = "";
-                content += "ID: " + post.getId() + "\n";
-                content += "Title: " + post.getTitle() + "\n";
-                content += "Content: " + post.getContent() + "\n\n";
-                textViewResult.append(content); //content에 추가한다.
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
-            }
-        });
+//
+//        call.enqueue(new Callback<Post>() { //enqueue() 메서드는 비동기적으로 요청을 실행(응답 기다리지X)
+//            //Callback<List<Post>> -> 비동기적인 http 요청결과를 처리하는 메서드 정의
+//
+//            @Override
+//            public void onResponse(Call<Post> call, Response<Post> response) {
+//                if (!response.isSuccessful()) {
+//                    textViewResult.setText("Code: " + response.code());
+//                    return;
+//                }
+//                Post post = response.body(); //응답을 처리하는 부분 List<post>형식으로 반환
+//
+//                String content = "";
+//                content += "ID: " + post.getId() + "\n";
+//                content += "Title: " + post.getTitle() + "\n";
+//                content += "Content: " + post.getContent() + "\n\n";
+//                textViewResult.append(content); //content에 추가한다.
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Post> call, Throwable t) {
+//                textViewResult.setText(t.getMessage());
+//            }
+//        });
     }
-}
+//}

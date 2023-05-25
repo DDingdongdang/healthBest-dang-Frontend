@@ -1,8 +1,10 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '7.4.2'
 }
-
 android {
+    task wrapper(type: Wrapper) {
+        gradleVersion = '7.0'
+    }
     namespace 'com.example.dangdiary'
     compileSdk 33
 
@@ -50,3 +52,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 }
+
+tasks.register("prepareKotlinBuildScriptModel"){}
