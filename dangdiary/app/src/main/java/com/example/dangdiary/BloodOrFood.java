@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.dangdiary.diet.java.FoodRegister;
+
 public class BloodOrFood extends AppCompatActivity {
 
     private Button button_pblood;
@@ -40,7 +42,7 @@ public class BloodOrFood extends AppCompatActivity {
         button_pfood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(BloodOrFood.this,FoodRegister.class);//현재,이동 적기
+                Intent intent2 = new Intent(BloodOrFood.this, FoodRegister.class);//현재,이동 적기
                 startActivity(intent2);
             }
 

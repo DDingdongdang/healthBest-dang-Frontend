@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".HomeMenu">
 
+
     <!--    상단 날짜 표시: id:today_layout-->
     <RelativeLayout
         android:id="@+id/today_layout"

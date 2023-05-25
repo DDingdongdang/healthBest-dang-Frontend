@@ -37,25 +37,33 @@ public class WriteFood extends AppCompatActivity {
 }
 */
 
-package com.example.dangdiary;
+package com.example.dangdiary.diet.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-import java.util.List;
+
+import kotlinx.coroutines.channels.Send;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 
-//import com.example.dangdiary.Post;
+import com.example.dangdiary.R;
+import com.example.dangdiary.diet.api.RestApi;
+import com.example.dangdiary.diet.dto.Post;
+import com.example.dangdiary.diet.dto.SendFoodName;
 
-/* 여기서부터
-public class WriteFood extends AppCompatActivity {
+
+/*public class WriteFood extends AppCompatActivity {
     private TextView textViewResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,10 +106,18 @@ public class WriteFood extends AppCompatActivity {
             }
         });
     }
-}여기까지 돌아가는거 확인 밑에는 list 제거하는 코드*/
+}*/
 
 public class WriteFood extends AppCompatActivity {
-    private TextView textViewResult;
+
+
+
+    private Button btn_send;
+    private EditText food_name;
+    private TextView textViewResult; //영양성분 결과
+
+    private RestApi jsonPlaceHolderApi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -110,6 +126,9 @@ public class WriteFood extends AppCompatActivity {
         setContentView(R.layout.writefood);
         Intent intent = getIntent();
 
+        ;
+
+        //retorfit 설정
         textViewResult = findViewById(R.id.text_view_result); //결과가 나올 txt view
         Retrofit retrofit = new Retrofit.Builder() //retorfit 인스턴스 생성
                 .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
@@ -119,11 +138,48 @@ public class WriteFood extends AppCompatActivity {
         RestApi jsonPlaceHolderApi = retrofit.create(RestApi.class); //restapi 인스턴스 생성
         Call<Post> call = jsonPlaceHolderApi.getPosts(); //서버에 대한 http get요청을 나타내는 call 객체 생성
         //restapi에서 정의했던 getPosts 메서드를 호출
+
+
+        Call<SendFoodName> call2 = jsonPlaceHolderApi.SendFoodName(sendData());
+
+
+        //뷰 초기화
+        food_name = (EditText) findViewById(R.id.food_name);
+        textViewResult = findViewById(R.id.text_view_result);
+        btn_send = findViewById(R.id.btn_send);
+
+
+        //버튼 클릭시
+        btn_send.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                sendData();
+            }
+        });
+    }
+
+    private SendFoodName sendData() {
+
+        //edit text에서 음식 이름 가져오기
+        String foodName = food_name.getText().toString();
+
+        SendFoodName sendFoodName = new SendFoodName();
+        sendFoodName.setName(foodName); //객체에 이름을 넣어
+
+        return sendFoodName;
+    }
+
+
+
+
+
+
         call.enqueue(new Callback<Post>() { //enqueue() 메서드는 비동기적으로 요청을 실행(응답 기다리지X)
             //Callback<List<Post>> -> 비동기적인 http 요청결과를 처리하는 메서드 정의
 
             @Override
-            public void onResponse(Call<Post> call, Response<Post>response) {
+            public void onResponse(Call<Post> call, Response<Post> response) {
                 if (!response.isSuccessful()) {
                     textViewResult.setText("Code: " + response.code());
                     return;
@@ -135,8 +191,8 @@ public class WriteFood extends AppCompatActivity {
                 content += "Title: " + post.getTitle() + "\n";
                 content += "Content: " + post.getContent() + "\n\n";
                 textViewResult.append(content); //content에 추가한다.
-
             }
+
             @Override
             public void onFailure(Call<Post> call, Throwable t) {
                 textViewResult.setText(t.getMessage());

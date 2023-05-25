@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.diet.java;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +31,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dangdiary.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

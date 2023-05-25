@@ -26,13 +26,13 @@
         <!--cleartextTraffic -> http로 시작하는 사이트에 접근 하기 위해 사용 -->
 
         <activity
-            android:name=".WriteFood"
+            android:name=".diet.java.WriteFood"
             android:exported="false" />
         <activity
             android:name=".Join"
             android:exported="false" />
         <activity
-            android:name=".FoodRegister"
+            android:name=".diet.java.FoodRegister"
             android:exported="false" />
         <activity
             android:name=".BloodRegister"
