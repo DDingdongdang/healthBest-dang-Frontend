@@ -53,10 +53,11 @@
         android:gravity = "center_horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/todayMeal_recyclerView"
+        android:id="@+id/todayBloodSugar_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:gravity ="center_horizontal"
         android:layout_below="@id/todays_BloodSugarState"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
