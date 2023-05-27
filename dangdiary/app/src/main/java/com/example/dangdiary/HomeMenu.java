@@ -87,10 +87,10 @@ public class HomeMenu extends AppCompatActivity {
 //        }
 
         //blood 버튼 누르고 화면 이동
-//        if (view == btn_blood){
-//            Intent intent1 = new Intent(HomeMenu.this, bloodview.class);//현재,이동 적기
-//            startActivity(intent1);
-//        }
+        if (view == btn_blood){
+            Intent intent1 = new Intent(HomeMenu.this, BloodView.class);//현재,이동 적기
+            startActivity(intent1);
+        }
 
 
     }

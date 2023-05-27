@@ -5,7 +5,8 @@ public class FoodViewItem {
     private String mealType;
     //private LocalDateTime inputTime;
     private String menuName;
-    private int foodSugar;
+    private double foodSugar;
+    private double carbon;
 
     public String getMealType() {
         return mealType;
@@ -23,13 +24,16 @@ public class FoodViewItem {
         this.menuName = menuName;
     }
 
-    public int getFoodSugar() {
+    public double getFoodSugar() {
         return foodSugar;
     }
 
-    public void setFoodSugar(int foodSugar) {
+    public void setFoodSugar(double foodSugar) {
         this.foodSugar = foodSugar;
     }
+
+    public double getCarbon() { return carbon;}
+    public void setCarbon(double carbon) { this.carbon = carbon;}
 
     public String getFood_photo() {
         return food_photo;

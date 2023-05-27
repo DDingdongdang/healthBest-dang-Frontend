@@ -1,22 +1,25 @@
-package com.example.dangdiary.diet.java;
+package com.example.dangdiary;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dangdiary.R;
-
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FoodView extends AppCompatActivity {
+public class BloodView extends AppCompatActivity {
 
     // 상단 날짜 조절 버튼
     private Button main_back_btn;
@@ -24,8 +27,8 @@ public class FoodView extends AppCompatActivity {
     TextView main_today_textview;
 
     private RecyclerView mRecyclerView;
-    private ArrayList<FoodViewItem> mList;
-    private FoodViewAdapter mRecyclerViewAdapter;
+    private ArrayList<BloodViewItem> mList;
+    private BloodViewAdapter mRecyclerViewAdapter;
 
 
     // 현재 날짜 표시해주는 메소드
@@ -58,7 +61,7 @@ public class FoodView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.foodview);
+        setContentView(R.layout.bloodview);
 
         Intent intent = getIntent();
 
@@ -71,30 +74,32 @@ public class FoodView extends AppCompatActivity {
         main_today_textview.setText(getDateFunc());
 
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.todayMeal_recyclerView);
+        mRecyclerView = (RecyclerView)findViewById(R.id.todayBloodSugar_recyclerView);
         mList = new ArrayList<>();
         // recyclerView에 넣어줄 값들
         for(int i = 0; i<5; i++){
-            addItem("iconName","아침","미역국",300, 20.3);
+            addItem("아침","식전",8,40, 260);
         }
 
         System.out.print(mList);
 
-        mRecyclerViewAdapter = new FoodViewAdapter(mList);
+        mRecyclerViewAdapter = new BloodViewAdapter(mList);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
-    public void addItem(String food_photo, String mealType, String menuName, double dangAmount, double carbon){
-        FoodViewItem item = new FoodViewItem();
-        item.setFood_photo(food_photo);
+    public void addItem(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
+        BloodViewItem item = new BloodViewItem();
         item.setMealType(mealType);
-        item.setMenuName(menuName);
-        item.setFoodSugar(dangAmount);
-        item.setCarbon(carbon);
+        item.setMealTime(mealTime);
+        item.setDate_hour(date_hour);
+        item.setDate_minute(date_minute);
+        item.setSugar(sugar);
 
         mList.add(item);
     }
+
+
 
 }
