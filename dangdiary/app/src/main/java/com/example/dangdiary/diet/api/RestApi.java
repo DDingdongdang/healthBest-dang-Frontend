@@ -23,14 +23,11 @@ public interface RestApi {
 
     @GET("/api/v1/foods/info")
     Call<FoodInfo> SendFoodName(@Query("name") String foodName );
+
     //Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);
 
     //Call<받는거> 함수이름 (@body 객체타입 객체이름
 
-
-    @GET("/api/v1/foods/info/{name}")
-    Call<FoodInfo> sendFoodName(
-            @Path("name") String name);
 
 
 
