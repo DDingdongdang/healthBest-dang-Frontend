@@ -29,7 +29,10 @@
             android:name=".diet.java.WriteFood"
             android:exported="false" />
         <activity
-            android:name=".Join"
+            android:name=".diet.java.WriteFood2"
+            android:exported="false" />
+        <activity
+            android:name=".menu.Join"
             android:exported="false" />
         <activity
             android:name=".diet.java.FoodRegister"
@@ -38,19 +41,19 @@
             android:name=".blood.java.BloodRegister"
             android:exported="false" />
         <activity
-            android:name=".HomeMenu"
+            android:name=".menu.HomeMenu"
             android:exported="false" />
         <activity
-            android:name=".BloodOrFood"
+            android:name=".menu.BloodOrFood"
             android:exported="false" />
         <activity
             android:name=".diet.java.FoodView"
             android:exported="false"/>
         <activity
-            android:name=".BloodView"
+            android:name=".blood.java.BloodView"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.MainActivity"
             android:exported="true">
 
             <intent-filter>

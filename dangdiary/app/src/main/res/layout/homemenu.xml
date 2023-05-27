@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeMenu">
+    tools:context=".menu.HomeMenu">
 
 
     <!--    상단 날짜 표시: id:today_layout-->

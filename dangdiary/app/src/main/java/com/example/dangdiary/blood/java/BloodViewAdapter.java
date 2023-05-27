@@ -1,7 +1,6 @@
-package com.example.dangdiary;
+package com.example.dangdiary.blood.java;
 
 import android.content.Context;
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dangdiary.R;
 
 import java.util.ArrayList;
 

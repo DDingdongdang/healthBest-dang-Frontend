@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.dangdiary.R;
 import com.example.dangdiary.blood.java.BloodRegister;
 import com.example.dangdiary.diet.java.FoodRegister;
 

@@ -14,7 +14,7 @@ import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dangdiary.HomeMenu;
+import com.example.dangdiary.menu.HomeMenu;
 import com.example.dangdiary.R;
 
 import java.text.SimpleDateFormat;
