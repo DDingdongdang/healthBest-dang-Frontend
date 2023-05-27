@@ -1,9 +1,11 @@
-package com.example.dangdiary;
+package com.example.dangdiary.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.dangdiary.R;
 
 public class Join extends AppCompatActivity {
 

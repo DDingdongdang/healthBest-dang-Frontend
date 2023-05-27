@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.blood.java;
 
 public class BloodViewItem {
 

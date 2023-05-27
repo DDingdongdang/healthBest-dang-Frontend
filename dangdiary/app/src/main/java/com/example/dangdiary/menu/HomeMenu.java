@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.menu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dangdiary.blood.java.BloodView;
+import com.example.dangdiary.R;
 import com.example.dangdiary.diet.java.FoodView;
 import com.example.dangdiary.diet.java.FoodViewItem;
 
