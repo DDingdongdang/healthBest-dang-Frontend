@@ -2,6 +2,7 @@ package com.example.dangdiary.menu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -33,13 +34,14 @@ public class HomeMenu extends AppCompatActivity {
     private Button btn_food;
     private Button btn_mypage;
 
-    // ListView
-    private ListView whatIEat_layout;
+    // BloodSugar recycler view
+    private RecyclerView bRecyclerView;
+    private ArrayList<HomeBloodSugarViewItem> bList;
+    private HomeBloodSugarViewAdapter bRecyclerViewAdapter;
 
     // 상단 날짜 조절 버튼
     private Button main_back_btn;
     private Button main_next_btn;
-
     TextView main_today_textview;
 
     // 현재 날짜 표시해주는 메소드
@@ -101,10 +103,7 @@ public class HomeMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homemenu);
-        //tv_sub = findViewById(R.id.tv_sub);
         Intent intent = getIntent();
-        //String str = intent.getStringExtra("str");
-        //tv_sub.setText(str);
 
         //하단 네이게이션 바 버튼
         btn_plus = findViewById(R.id.btn_plus);
@@ -121,63 +120,32 @@ public class HomeMenu extends AppCompatActivity {
         main_today_textview = (TextView) findViewById(R.id.main_today_textview);
         main_today_textview.setText(getDateFunc());
 
+        bRecyclerView = (RecyclerView)findViewById(R.id.todayBloodSugar_recyclerView);
+        bList = new ArrayList<>();
+        // recyclerView에 넣어줄 값들
+            for(int i = 0; i<5; i++){
+            addItem("아침","식전",8,40, 260);
+        }
+
+        System.out.print(bList);
+
+        bRecyclerViewAdapter = new HomeBloodSugarViewAdapter(bList);
+        bRecyclerView.setAdapter(bRecyclerViewAdapter);
+        bRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
-    public static class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHolder> {
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView food_photo;
-            TextView mealType;
-            //private LocalDateTime inputTime;
-            TextView menuName;
-            TextView foodSugar;
+    public void addItem(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
+        HomeBloodSugarViewItem item = new HomeBloodSugarViewItem();
+        item.setMealType(mealType);
+        item.setMealTime(mealTime);
+        item.setDate_hour(date_hour);
+        item.setDate_minute(date_minute);
+        item.setSugar(sugar);
 
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-
-                food_photo = (ImageView) itemView.findViewById(R.id.food_photo);
-                mealType = (TextView) itemView.findViewById(R.id.mealType);
-                menuName = (TextView) itemView.findViewById(R.id.menuName);
-                foodSugar = (TextView) itemView.findViewById(R.id.foodSugar);
-            }
-        }
-
-        private ArrayList<FoodViewItem> mList = null;
-
-        public FoodViewAdapter(ArrayList<FoodViewItem> mList) {
-            this.mList = mList;
-        }
-
-        // 아이템 뷰를 위한 뷰홀더 객체를 생성하여 리턴
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            Context context = parent.getContext();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-
-            View view = inflater.inflate(R.layout.foodview_listview, parent, false);
-            ViewHolder vh = new ViewHolder(view);
-            return vh;
-        }
-
-        // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            FoodViewItem item = mList.get(position);
-
-            holder.food_photo.setImageResource(R.drawable.ic_launcher_background);   // 사진 없어서 기본 파일로 이미지 띄움
-            holder.menuName.setText(item.getMenuName());
-            holder.mealType.setText(item.getMealType());
-            holder.foodSugar.setText(String.valueOf(item.getFoodSugar()));
-        }
-
-        @Override
-        public int getItemCount() {
-            return mList.size();
-        }
-
-
+        bList.add(item);
     }
+
 }
 
 
