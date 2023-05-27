@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /*public interface RestApi {
@@ -21,13 +22,17 @@ public interface RestApi {
     //Call<List<Post>> getPosts();
 
     @GET("/api/v1/foods/info")
-    //Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);
     Call<FoodInfo> SendFoodName(@Query("name") String foodName );
+    //Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);
+
     //Call<받는거> 함수이름 (@body 객체타입 객체이름
 
 
-    /*@HTTP(method = "GET", path="/api/v1/foods/info",hasBody = true)
-    Call<FoodInfo> SendFoodName(@Body SendFoodName sendFoodName);*/
+    @GET("/api/v1/foods/info/{name}")
+    Call<FoodInfo> sendFoodName(
+            @Path("name") String name);
+
+
 
 
 }
