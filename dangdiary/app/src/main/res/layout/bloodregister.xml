@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:backgroundTint="#FF93AC"
+                android:backgroundTint="#FFC1CC"
                 android:text="수정"/>
 
 
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:backgroundTint="#FF93AC"
+                android:backgroundTint="#FFC1CC"
                 android:text="수정"/>
 
 
@@ -185,7 +185,7 @@
             android:padding = "10dp"
             android:text="등록"
             android:onClick="onClick"
-            android:backgroundTint="#FF6289"
+            android:backgroundTint="#FFB1BE"
             android:textStyle="bold"/>
 
 

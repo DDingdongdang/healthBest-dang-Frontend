@@ -30,8 +30,8 @@
             android:id="@+id/main_today_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:textSize="25dp"
+            android:textStyle="bold"
             android:layout_centerInParent="true"
             android:text="오늘 날짜" />
 
