@@ -53,7 +53,7 @@ public class BloodRegister extends AppCompatActivity {
         // 원하는 현재 시간을 string 형식으로
         String getDate = dataFormat1.format(date);
 
-        return getDate;
+        return getDate; //string
     }
 
     // 현재 시간 표시해주는 메소드
@@ -68,7 +68,7 @@ public class BloodRegister extends AppCompatActivity {
         // 원하는 현재 시간을 string 형식으로
         String getTime = dataFormat2.format(date);
 
-        return getTime;
+        return getTime; //string
     }
 
 
@@ -197,7 +197,5 @@ public class BloodRegister extends AppCompatActivity {
         //bloodsugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString()); // -> 이거 넣으면? 화면이 안열림 왜이럴까?
 
 
-
-
         }
-} //BloodRegister
+}
