@@ -95,6 +95,12 @@ public class HomeMenu extends AppCompatActivity {
             Intent intent1 = new Intent(HomeMenu.this, BloodView.class);//현재,이동 적기
             startActivity(intent1);
         }
+
+        //mypage 버튼 누르고 화면 이동
+        if (view == btn_mypage){
+            Intent intent1 = new Intent(HomeMenu.this, MyPage.class);//현재,이동 적기
+            startActivity(intent1);
+        }
     }
 
     @Override
