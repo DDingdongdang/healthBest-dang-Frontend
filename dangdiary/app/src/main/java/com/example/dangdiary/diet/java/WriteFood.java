@@ -39,6 +39,7 @@ public class WriteFood extends AppCompatActivity {
 
 package com.example.dangdiary.diet.java;
 
+import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -57,9 +58,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.blood.java.BloodRegister;
 import com.example.dangdiary.diet.api.RestApi;
 import com.example.dangdiary.diet.dto.FoodInfo;
 import com.example.dangdiary.diet.dto.SendFoodName;
+import com.example.dangdiary.menu.BloodOrFood;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -68,8 +71,11 @@ public class WriteFood extends AppCompatActivity {
 
 
     private Button btn_send;
+    private Button btn_register;
+
     private EditText food_name;
     private TextView textViewResult; //영양성분 결과
+
 
     private RestApi jsonPlaceHolderApi;
 
@@ -87,6 +93,7 @@ public class WriteFood extends AppCompatActivity {
                 .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
                 .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
                 .build(); //Retrofit인스턴스를 만들고 반환
+
 
 
 
@@ -144,6 +151,22 @@ public class WriteFood extends AppCompatActivity {
                 });
             }
         });
+
+
+
+        btn_register = findViewById(R.id.btn_register);
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(WriteFood.this, WriteFood2.class);//현재,이동 적기
+                startActivity(intent1);
+            }
+
+        });
+
+
+
 
 
     }

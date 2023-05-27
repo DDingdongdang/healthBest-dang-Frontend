@@ -29,6 +29,9 @@
             android:name=".diet.java.WriteFood"
             android:exported="false" />
         <activity
+            android:name=".diet.java.WriteFood2"
+            android:exported="false" />
+        <activity
             android:name=".menu.Join"
             android:exported="false" />
         <activity
