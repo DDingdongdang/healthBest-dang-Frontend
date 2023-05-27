@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:backgroundTint="#90AEF5"
             android:text="전날"/>
 
         <TextView
@@ -30,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textSize="25dp"
             android:layout_centerInParent="true"
             android:text="오늘 날짜" />
 
@@ -38,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:backgroundTint="#90AEF5"
             android:text="다음날"/>
 
     </RelativeLayout>
@@ -80,9 +83,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/todaydietlist_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="150dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:gravity="center_horizontal" />
 
