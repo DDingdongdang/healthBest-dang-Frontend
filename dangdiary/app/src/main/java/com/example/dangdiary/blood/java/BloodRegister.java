@@ -129,7 +129,7 @@ public class BloodRegister extends AppCompatActivity {
 
 
         @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
 
         //layout 넘어오기
         super.onCreate(savedInstanceState);
@@ -193,9 +193,17 @@ public class BloodRegister extends AppCompatActivity {
 
         // 입력받은 혈당값 bloodsugar_submitted에 string으로 저장하기
         bloodsugar_editText = (EditText) findViewById(R.id.bloodsugar_editText);
-        String bloodsugar_submitted = bloodsugar_editText.getText().toString();
-        //bloodsugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString()); // -> 이거 넣으면? 화면이 안열림 왜이럴까?
+        //int bloodsugar_submitted = bloodsugar_editText.getText();
+        int bloodsugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString()); // -> 이거 넣으면? 화면이 안열림 왜이럴까?
 
 
         }
+
+
+
+
+
+
+
+
 }

@@ -3,7 +3,11 @@ package com.example.dangdiary.diet.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SendRecord {
+public class SendFoodRecord {
+
+
+
+    //사용자에게 받은 데이터를 전송
     @SerializedName("time")
     @Expose
     private Time time;
@@ -28,6 +32,8 @@ public class SendRecord {
         this.sugar = sugar;
     }
 
+
+
     public class Time {
         @SerializedName("year")
         @Expose
@@ -45,7 +51,7 @@ public class SendRecord {
         @Expose
         private int hour;
 
-        @SerializedName("minuit")
+        @SerializedName("minute")
         @Expose
         private int minute;
 
