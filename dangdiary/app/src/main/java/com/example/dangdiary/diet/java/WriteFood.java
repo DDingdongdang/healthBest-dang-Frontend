@@ -114,7 +114,7 @@ public class WriteFood extends AppCompatActivity {
 
 
                 String SendFoodName;
-                Call<FoodInfo> call = jsonPlaceHolderApi.SendFoodName("불고기"); //이름을 보내고
+                Call<FoodInfo> call = jsonPlaceHolderApi.SendFoodName(foodName); //이름을 보내고
                 //FoodInfo를 받아온다.
                 call.enqueue(new Callback<FoodInfo>() {
                     @Override

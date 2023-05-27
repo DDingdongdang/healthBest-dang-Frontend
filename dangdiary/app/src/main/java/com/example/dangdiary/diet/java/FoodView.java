@@ -1,4 +1,4 @@
-package com.example.dangdiary.blood.java;
+package com.example.dangdiary.diet.java;
 
 import android.content.Intent;
 import android.os.Bundle;

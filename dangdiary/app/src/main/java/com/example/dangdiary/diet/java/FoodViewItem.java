@@ -1,4 +1,4 @@
-package com.example.dangdiary.blood.java;
+package com.example.dangdiary.diet.java;
 
 public class FoodViewItem {
     private String food_photo;
