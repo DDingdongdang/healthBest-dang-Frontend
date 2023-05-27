@@ -1,4 +1,4 @@
-package com.example.dangdiary;
+package com.example.dangdiary.menu;
 
 public class HomeBloodSugarViewItem {
 
