@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.example.dangdiary.blood.java.BloodView;
 import com.example.dangdiary.R;
 import com.example.dangdiary.diet.java.FoodView;
+import com.example.dangdiary.diet.java.FoodViewAdapter;
 import com.example.dangdiary.diet.java.FoodViewItem;
 
 import java.text.SimpleDateFormat;
@@ -38,6 +39,13 @@ public class HomeMenu extends AppCompatActivity {
     private RecyclerView bRecyclerView;
     private ArrayList<HomeBloodSugarViewItem> bList;
     private HomeBloodSugarViewAdapter bRecyclerViewAdapter;
+
+
+    // 식단 recycler view
+    private RecyclerView fRecyclerView;
+    private ArrayList<HomeFoodViewItem> fList;
+    private HomeFoodViewAdapter fRecyclerViewAdapter;
+
 
     // 상단 날짜 조절 버튼
     private Button main_back_btn;
@@ -70,8 +78,6 @@ public class HomeMenu extends AppCompatActivity {
         if (view == main_next_btn) {
 
         }
-
-
         // + 버튼 누르고 화면 이동
         if (view == btn_plus) {
             Intent intent1 = new Intent(HomeMenu.this, BloodOrFood.class);//현재,이동 적기
@@ -84,19 +90,11 @@ public class HomeMenu extends AppCompatActivity {
             startActivity(intent3);
         }
 
-        // mypage 버튼 누르고 화면 이동 :: my page 파일 만들기!!
-//        if (view == btn_mypage){
-//            Intent intent1 = new Intent(HomeMenu.this, myPage.class);//현재,이동 적기
-//            startActivity(intent1);
-//        }
-
         //blood 버튼 누르고 화면 이동
         if (view == btn_blood){
             Intent intent1 = new Intent(HomeMenu.this, BloodView.class);//현재,이동 적기
             startActivity(intent1);
         }
-
-
     }
 
     @Override
@@ -124,7 +122,7 @@ public class HomeMenu extends AppCompatActivity {
         bList = new ArrayList<>();
         // recyclerView에 넣어줄 값들
             for(int i = 0; i<5; i++){
-            addItem("아침","식전",8,40, 260);
+            addItem1("아침","식전",8,40, 260);
         }
 
         System.out.print(bList);
@@ -133,9 +131,22 @@ public class HomeMenu extends AppCompatActivity {
         bRecyclerView.setAdapter(bRecyclerViewAdapter);
         bRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        fRecyclerView = (RecyclerView)findViewById(R.id.todaydietlist_recyclerView);
+        fList = new ArrayList<>();
+        // recyclerView에 넣어줄 값들
+        for(int i = 0; i<5; i++){
+            addItem2("아침","미역국",300, 20.3);
+        }
+
+        System.out.print(fList);
+
+        fRecyclerViewAdapter = new HomeFoodViewAdapter(fList);
+        fRecyclerView.setAdapter(fRecyclerViewAdapter);
+        fRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
-    public void addItem(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
+    public void addItem1(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
         HomeBloodSugarViewItem item = new HomeBloodSugarViewItem();
         item.setMealType(mealType);
         item.setMealTime(mealTime);
@@ -144,6 +155,17 @@ public class HomeMenu extends AppCompatActivity {
         item.setSugar(sugar);
 
         bList.add(item);
+    }
+
+    public void addItem2(String mealType, String menuName, double dangAmount, double carbon){
+        HomeFoodViewItem item = new HomeFoodViewItem();
+
+        item.setMealType(mealType);
+        item.setMenuName(menuName);
+        item.setFoodSugar(dangAmount);
+        item.setCarbon(carbon);
+
+        fList.add(item);
     }
 
 }
