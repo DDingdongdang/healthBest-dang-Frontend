@@ -14,12 +14,24 @@ import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dangdiary.blood.dto.BloodTime;
+import com.example.dangdiary.blood.dto.SendBloodRecord;
+import com.example.dangdiary.diet.dto.SendFoodName;
+import com.example.dangdiary.diet.java.WriteFood;
 import com.example.dangdiary.menu.HomeMenu;
 import com.example.dangdiary.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
 
 public class BloodRegister extends AppCompatActivity {
 
@@ -38,6 +50,15 @@ public class BloodRegister extends AppCompatActivity {
     String selected_time;
     RadioGroup eatOrNot_radioGroup;
     String selected_eatORNot;
+
+    EditText blood_sugar;
+
+    int mYear;
+    int mMonth;
+    int mDay;
+    int mHour;
+    int mMinute;
+
 
 
 
@@ -131,79 +152,107 @@ public class BloodRegister extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
 
-        //layout 넘어오기
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.bloodregister);
-        Intent intent = getIntent();
-
-        //textview 변수에 담기: 현재 날짜
-        present_date = (TextView) findViewById(R.id.present_date);
-        present_date.setText(getDateFunc());
-
-        //textview 변수에 담기: 현재 시간
-        present_time = (TextView) findViewById(R.id.present_time);
-        present_time.setText(getTimeFunc());
-
-        //버튼 변수에 담기
-        datePicker_btn = findViewById(R.id.datePicker_btn);
-        timePicker_btn = findViewById(R.id.timePicker_btn);
-
-        bloodsugar_register_button = findViewById(R.id.bloodsugar_register_button);
-
-        time_radioGroup = findViewById(R.id.time_radioGroup);
-        eatOrNot_radioGroup = findViewById(R.id.eatOrNot_radioGroup);
+            //layout 넘어오기
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.bloodregister);
+            Intent intent = getIntent();
 
 
-        // 아침 점심 저녁 라디오 그룹에서 결과값 : selected_time에 저장
-        // -> 저장이 되는지는 어캐 확인하는지 모르겠음
-        time_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.breakfast_button:
-                        selected_time = "아침";
-                        break;
-                    case R.id.lunch_button:
-                        selected_time = "점심";
-                        break;
-                    case R.id.dinner_button:
-                        selected_time = "저녁";
-                        break;
+            //통신을 위한 !
+            Gson gson = new GsonBuilder().setLenient().create();
+            Retrofit retrofit = new Retrofit.Builder() //retorfit 인스턴스 생성
+                    .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
+                    .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
+                    .build(); //Retrofit인스턴스를 만들고 반환
+
+
+
+
+            //textview 변수에 담기: 현재 날짜
+            present_date = (TextView) findViewById(R.id.present_date);
+            present_date.setText(getDateFunc());
+
+            //textview 변수에 담기: 현재 시간
+            present_time = (TextView) findViewById(R.id.present_time);
+            present_time.setText(getTimeFunc());
+
+            //버튼 변수에 담기
+            datePicker_btn = findViewById(R.id.datePicker_btn);
+            timePicker_btn = findViewById(R.id.timePicker_btn);
+
+            bloodsugar_register_button = findViewById(R.id.bloodsugar_register_button);
+
+            time_radioGroup = findViewById(R.id.time_radioGroup);
+            eatOrNot_radioGroup = findViewById(R.id.eatOrNot_radioGroup);
+
+            blood_sugar = (EditText) findViewById(R.id.bloodsugar_editText);
+
+
+            // 아침 점심 저녁 라디오 그룹에서 결과값 : selected_time에 저장
+            // -> 저장이 되는지는 어캐 확인하는지 모르겠음
+            time_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    switch (checkedId) {
+                        case R.id.breakfast_button:
+                            selected_time = "아침";
+                            break;
+                        case R.id.lunch_button:
+                            selected_time = "점심";
+                            break;
+                        case R.id.dinner_button:
+                            selected_time = "저녁";
+                            break;
+
+                    }
+                }
+            });
+
+            //식전 식후 라디오그룹에서 결과값: selected_eatORNot에 저장
+            // -> 저장이 되는지는 어캐 확인하는지 모르겠음
+            eatOrNot_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    switch (checkedId) {
+                        case R.id.before_button:
+                            selected_eatORNot = "식전";
+                            break;
+                        case R.id.after_button:
+                            selected_eatORNot = "식후";
+                            break;
+                    }
+                }
+            });
+
+
+            blood_sugar = (EditText) findViewById(R.id.bloodsugar_editText);
+            int bloodSugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString());
+
+
+            bloodsugar_register_button.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    //int year = 2023;
+                    BloodTime time = new BloodTime(mYear,mMonth,mDay,mHour,mMinute);
+                    SendBloodRecord sendBloodRecord = new SendBloodRecord(time,selected_time,selected_eatORNot,bloodSugar_submitted);
+
+
+
+
+
+
+
+
 
                 }
-            }
-        });
-
-        //식전 식후 라디오그룹에서 결과값: selected_eatORNot에 저장
-        // -> 저장이 되는지는 어캐 확인하는지 모르겠음
-        eatOrNot_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.before_button:
-                        selected_eatORNot = "식전";
-                        break;
-                    case R.id.after_button:
-                        selected_eatORNot = "식후";
-                        break;
-                }
-            }
-        });
+            });
 
 
-        // 입력받은 혈당값 bloodsugar_submitted에 string으로 저장하기
-        bloodsugar_editText = (EditText) findViewById(R.id.bloodsugar_editText);
-        //int bloodsugar_submitted = bloodsugar_editText.getText();
-        int bloodsugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString()); // -> 이거 넣으면? 화면이 안열림 왜이럴까?
+            /*@POST("/api/v1/sugars")
+            Call<SendBloodRecord> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);*/
 
 
         }
-
-
-
-
-
-
-
-
 }

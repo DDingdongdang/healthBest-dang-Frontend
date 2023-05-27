@@ -177,6 +177,7 @@
             android:singleLine="true"
             ></EditText>
 
+
         <Button
             android:id="@+id/bloodsugar_register_button"
             android:layout_width="wrap_content"

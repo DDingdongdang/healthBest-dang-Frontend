@@ -33,7 +33,6 @@ public class SendFoodRecord {
     }
 
 
-
     public class Time {
         @SerializedName("year")
         @Expose

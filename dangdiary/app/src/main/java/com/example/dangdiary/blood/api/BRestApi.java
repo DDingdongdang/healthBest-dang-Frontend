@@ -18,9 +18,12 @@ public interface BRestApi {
     @POST("/api/v1/sugars")
     Call<SendBloodRecord> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);
 
+
     //혈당 조회 요청
     @GET("/api/v1/sugars")
     Call<RequestBlood> requestBlood(@Query("year") int year,@Query("month") int month,@Query("date") int date );
+
+
 
 
     //Call<FoodInfo> SendFoodName(@Query("name") String foodName );
