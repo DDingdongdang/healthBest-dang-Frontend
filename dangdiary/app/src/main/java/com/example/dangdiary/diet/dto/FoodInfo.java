@@ -6,6 +6,9 @@ public class FoodInfo {
     private long id;
     private String name;
 
+
+
+
     private int amount;
     private double calorie;
     private double carbohydrate;
@@ -13,6 +16,7 @@ public class FoodInfo {
     private double fat;
     private double sugars;
     private double sodium;
+
 
 
     public long getId() {

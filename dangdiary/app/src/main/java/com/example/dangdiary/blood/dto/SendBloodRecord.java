@@ -33,5 +33,15 @@ public class SendBloodRecord {
         this.mealtime = mealtime;
         this.sugar = sugar;
     }
+
+    /*private BloodTime time;
+    private String mealtype;
+    private String mealtime;
+    private int sugar;*/
+
+
+
+
+
 }
 

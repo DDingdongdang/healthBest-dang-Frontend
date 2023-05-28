@@ -17,12 +17,17 @@ public interface BRestApi {
 
     //혈당기록 전송
     @POST("/api/v1/sugars")
-    Call<BloodCreateResponse> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);
+    Call<BloodCreateResponse> sendBloodRecord(
+            @Body SendBloodRecord sendBloodRecord);
+
 
 
     //혈당 조회 요청
     @GET("/api/v1/sugars")
-    Call<RequestBlood> requestBlood(@Query("year") int year,@Query("month") int month,@Query("day") int day );
+    Call<RequestBlood> requestBlood(
+            @Query("year") int year,
+            @Query("month") int month,
+            @Query("day") int day );
 
 
 

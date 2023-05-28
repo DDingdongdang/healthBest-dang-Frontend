@@ -245,7 +245,7 @@ public class BloodRegister extends AppCompatActivity {
                 Toast.makeText(this,"숫자만 입력하세요",Toast.LENGTH_SHORT).show();
             }
 
-            yerin = 100;
+            //yerin = 100;
 
 
             jsonPlaceHolderApi = retrofit.create(BRestApi.class);
@@ -268,14 +268,13 @@ public class BloodRegister extends AppCompatActivity {
                                 BloodCreateResponse bloodCreateResponse = response.body();
                             }
                         }
-
                         @Override
                         public void onFailure(Call<BloodCreateResponse> call, Throwable t) {
-
                         }
-
-
                     });
+
+
+
 
 
                     Intent intent1 = new Intent(BloodRegister.this, HomeMenu.class);//현재,이동 적기
@@ -287,5 +286,6 @@ public class BloodRegister extends AppCompatActivity {
             });
 
         }
+
 
 }
