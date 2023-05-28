@@ -22,7 +22,7 @@ public interface BRestApi {
 
     //혈당 조회 요청
     @GET("/api/v1/sugars")
-    Call<RequestBlood> requestBlood(@Query("year") int year,@Query("month") int month,@Query("date") int date );
+    Call<RequestBlood> requestBlood(@Query("year") int year,@Query("month") int month,@Query("day") int day );
 
 
 
