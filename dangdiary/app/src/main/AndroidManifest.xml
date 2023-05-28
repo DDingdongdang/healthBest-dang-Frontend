@@ -44,6 +44,9 @@
             android:name=".menu.BloodOrFood"
             android:exported="false" />
         <activity
+            android:name=".menu.MyPage"
+            android:exported="false" />
+        <activity
             android:name=".diet.java.FoodView"
             android:exported="false"/>
         <activity
