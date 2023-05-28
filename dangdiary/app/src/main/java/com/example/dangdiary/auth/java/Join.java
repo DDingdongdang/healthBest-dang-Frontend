@@ -10,6 +10,21 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.auth.api.ARestApi;
+import com.example.dangdiary.auth.dto.SignUp;
+import com.example.dangdiary.auth.dto.UserCreateResponse;
+import com.example.dangdiary.blood.api.BRestApi;
+import com.example.dangdiary.blood.dto.BloodCreateResponse;
+import com.example.dangdiary.blood.dto.BloodTime;
+import com.example.dangdiary.blood.dto.SendBloodRecord;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Join extends AppCompatActivity {
 
@@ -23,8 +38,24 @@ public class Join extends AppCompatActivity {
     String userNickname;
     int userAge, userHeight, userWeight;
 
+    private ARestApi jsonPlaceHolderApi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+        Gson gson = new GsonBuilder().setLenient().create();
+        Retrofit retrofit = new Retrofit.Builder() //retorfit 인스턴스 생성
+                .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
+                .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
+                .build(); //Retrofit인스턴스를 만들고 반
+
+
+        jsonPlaceHolderApi = retrofit.create(ARestApi.class);
+
+
+
         //layout 넘어오기
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
@@ -57,6 +88,12 @@ public class Join extends AppCompatActivity {
             }
         });
 
+
+
+
+
+
+
         // 회원가입 버튼
         btn_register = (Button) findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +125,35 @@ public class Join extends AppCompatActivity {
 
                 Intent intent = new Intent(Join.this, MainActivity.class);//현재,이동 적기
                 startActivity(intent);
+
+
+                SignUp signUp = new SignUp(userID, userPass, userNickname, selected_sex, userAge, userHeight, userWeight);
+
+
+                Call<SignUp> call = jsonPlaceHolderApi.signup(signUp);
+
+                call.enqueue(new Callback<SignUp>() {
+                    @Override
+                    public void onResponse(Call<SignUp> call, Response<SignUp> response) {
+                        if (response.isSuccessful()) {
+                            SignUp userCreateResponse = response.body();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<SignUp> call, Throwable t) {
+
+                    }
+
+
+                });
+
+
+
             }
+
+
+
         });
 
 

@@ -1,5 +1,6 @@
 package com.example.dangdiary.diet.api;
 
+import com.example.dangdiary.blood.dto.RequestBlood;
 import com.example.dangdiary.diet.dto.Post;
 import com.example.dangdiary.diet.dto.FoodInfo;
 import com.example.dangdiary.diet.dto.SendFoodRecord;
@@ -28,6 +29,14 @@ public interface RestApi {
     //음식기록 전송
     @POST("/api/v1/diets")
     Call<SendFoodRecord> sendRecord(@Body SendFoodRecord sendRecord);
+
+
+    //식단 조회 요청
+    @GET("/api/v1/sugars")
+    Call<RequestBlood> requestBlood(@Query("year") int year, @Query("month") int month, @Query("day") int day );
+
+
+
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.dangdiary.auth.api;
 
 
+import com.example.dangdiary.auth.dto.LogIn;
 import com.example.dangdiary.auth.dto.SignUp;
 import com.example.dangdiary.blood.dto.BloodCreateResponse;
 import com.example.dangdiary.blood.dto.SendBloodRecord;
@@ -14,5 +15,8 @@ public interface ARestApi {
     //회원가입정보 전송
     @POST("/api/v1/auth/sign-up")
     Call<SignUp> signup(@Body SignUp signUp);
+
+    @POST("/api/v1/auth/sign-in")
+    Call<LogIn> login(@Body LogIn login);
 
 }
