@@ -12,12 +12,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.diet.java.FoodView;
+import com.example.dangdiary.menu.BloodOrFood;
+import com.example.dangdiary.menu.HomeMenu;
+import com.example.dangdiary.menu.MyPage;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class BloodView extends AppCompatActivity {
+
+    // 하단 네비게이션 바 버튼
+    private Button btn_plus;
+    private Button btn_home;
+    private Button btn_blood;
+    private Button btn_food;
+    private Button btn_mypage;
 
     // 상단 날짜 조절 버튼
     private Button main_back_btn;
@@ -54,6 +65,30 @@ public class BloodView extends AppCompatActivity {
         if (view == main_next_btn) {
 
         }
+        // + 버튼 누르고 화면 이동
+        if (view == btn_plus) {
+            Intent intent1 = new Intent(BloodView.this, BloodOrFood.class);//현재,이동 적기
+            startActivity(intent1);
+        }
+
+        // food 버튼 누르고 화면 이동
+        if (view == btn_food) {
+            Intent intent3 = new Intent(BloodView.this, FoodView.class);//현재,이동 적기
+            startActivity(intent3);
+        }
+
+        //home 버튼 누르고 화면 이동
+        if (view == btn_home){
+            Intent intent1 = new Intent(BloodView.this, HomeMenu.class);//현재,이동 적기
+            startActivity(intent1);
+        }
+
+        //mypage 버튼 누르고 화면 이동
+        if (view == btn_mypage){
+            Intent intent1 = new Intent(BloodView.this,MyPage.class);//현재,이동 적기
+            startActivity(intent1);
+        }
+
     }
 
     @Override
@@ -70,6 +105,13 @@ public class BloodView extends AppCompatActivity {
         // 오늘 날짜
         main_today_textview = (TextView) findViewById(R.id.main_today_textview);
         main_today_textview.setText(getDateFunc());
+
+        //하단 네이게이션 바 버튼
+        btn_plus = findViewById(R.id.btn_plus);
+        btn_blood = findViewById(R.id.btn_blood);
+        btn_food = findViewById(R.id.btn_food);
+        btn_home = findViewById(R.id.btn_home);
+        btn_mypage = findViewById(R.id.btn_mypage);
 
 
         mRecyclerView = (RecyclerView)findViewById(R.id.todayBloodSugar_recyclerView);

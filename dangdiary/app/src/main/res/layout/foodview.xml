@@ -59,7 +59,7 @@
         android:id="@+id/progressbar_layout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom = "true"
+        android:layout_above="@id/bottom_menu"
         android:layout_marginTop="10dp"
         android:background="#FFFFCC"
         android:orientation="vertical">
@@ -77,6 +77,65 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:progress="400"
             android:max="1000"/>
+
+    </LinearLayout>
+
+    <!--    하단 메뉴 표시-->
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom = "true">
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:onClick="onClick"
+            android:backgroundTint="#FFFFCC"
+            android:text="🏠" />
+
+        <Button
+            android:id="@+id/btn_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:onClick="onClick"
+            android:backgroundTint="#FFFFCC"
+            android:text="🩸" />
+
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:onClick="onClick"
+            android:backgroundTint="#FFFFCC"
+            android:text="➕" />
+
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:onClick="onClick"
+            android:backgroundTint="#FFFF80"
+            android:text="🥦" />
+
+        <Button
+            android:id="@+id/btn_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:textSize="20sp"
+            android:backgroundTint="#FFFFCC"
+            android:text="🙋‍♂️"/>
 
     </LinearLayout>
 
