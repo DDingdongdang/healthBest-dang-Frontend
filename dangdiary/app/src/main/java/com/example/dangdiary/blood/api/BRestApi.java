@@ -1,5 +1,6 @@
 package com.example.dangdiary.blood.api;
 
+import com.example.dangdiary.blood.dto.BloodCreateResponse;
 import com.example.dangdiary.blood.dto.RequestBlood;
 import com.example.dangdiary.blood.dto.SendBloodRecord;
 import com.example.dangdiary.diet.dto.FoodInfo;
@@ -16,7 +17,7 @@ public interface BRestApi {
 
     //혈당기록 전송
     @POST("/api/v1/sugars")
-    Call<SendBloodRecord> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);
+    Call<BloodCreateResponse> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);
 
 
     //혈당 조회 요청

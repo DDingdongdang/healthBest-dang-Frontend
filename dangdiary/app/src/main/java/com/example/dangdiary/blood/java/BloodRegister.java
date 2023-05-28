@@ -11,13 +11,19 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dangdiary.blood.api.BRestApi;
+import com.example.dangdiary.blood.dto.BloodCreateResponse;
 import com.example.dangdiary.blood.dto.BloodTime;
 import com.example.dangdiary.blood.dto.SendBloodRecord;
+import com.example.dangdiary.diet.api.RestApi;
+import com.example.dangdiary.diet.dto.FoodInfo;
 import com.example.dangdiary.diet.dto.SendFoodName;
 import com.example.dangdiary.diet.java.WriteFood;
+import com.example.dangdiary.menu.BloodOrFood;
 import com.example.dangdiary.menu.HomeMenu;
 import com.example.dangdiary.R;
 import com.google.gson.Gson;
@@ -28,6 +34,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
@@ -58,6 +66,12 @@ public class BloodRegister extends AppCompatActivity {
     int mDay;
     int mHour;
     int mMinute;
+
+    int yerin;
+
+    int num;
+
+    private BRestApi jsonPlaceHolderApi;
 
 
 
@@ -141,10 +155,6 @@ public class BloodRegister extends AppCompatActivity {
         }
 
         // 등록 버튼 누르면 홈 화면으로 이동하기
-        if (view == bloodsugar_register_button){
-            Intent intent = new Intent(BloodRegister.this, HomeMenu.class);//현재,이동 적기
-            startActivity(intent);
-        }
 
     }
 
@@ -164,8 +174,6 @@ public class BloodRegister extends AppCompatActivity {
                     .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
                     .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
                     .build(); //Retrofit인스턴스를 만들고 반환
-
-
 
 
             //textview 변수에 담기: 현재 날짜
@@ -225,8 +233,22 @@ public class BloodRegister extends AppCompatActivity {
             });
 
 
+            bloodsugar_editText = findViewById(R.id.bloodsugar_editText);
+
             blood_sugar = (EditText) findViewById(R.id.bloodsugar_editText);
-            int bloodSugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString());
+            //int bloodSugar_submitted = Integer.parseInt(bloodsugar_editText.getText().toString());
+            try{
+                String str = bloodsugar_editText.getText().toString().trim();
+
+                 num = Integer.parseInt(str);
+            } catch(NumberFormatException e){
+                Toast.makeText(this,"숫자만 입력하세요",Toast.LENGTH_SHORT).show();
+            }
+
+            yerin = 100;
+
+
+            jsonPlaceHolderApi = retrofit.create(BRestApi.class);
 
 
             bloodsugar_register_button.setOnClickListener(new View.OnClickListener() {
@@ -235,24 +257,35 @@ public class BloodRegister extends AppCompatActivity {
                 public void onClick(View v) {
 
                     //int year = 2023;
-                    BloodTime time = new BloodTime(mYear,mMonth,mDay,mHour,mMinute);
-                    SendBloodRecord sendBloodRecord = new SendBloodRecord(time,selected_time,selected_eatORNot,bloodSugar_submitted);
+                    BloodTime time = new BloodTime(mYear, mMonth, mDay, mHour, mMinute);
+                    SendBloodRecord sendBloodRecord = new SendBloodRecord(time, selected_time, selected_eatORNot, num);
+
+                    Call<BloodCreateResponse> call = jsonPlaceHolderApi.sendBloodRecord(sendBloodRecord);
+                    call.enqueue(new Callback<BloodCreateResponse>() {
+                        @Override
+                        public void onResponse(Call<BloodCreateResponse> call, Response<BloodCreateResponse> response) {
+                            if (response.isSuccessful()) {
+                                BloodCreateResponse bloodCreateResponse = response.body();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<BloodCreateResponse> call, Throwable t) {
+
+                        }
 
 
+                    });
 
 
-
-
-
-
+                    Intent intent1 = new Intent(BloodRegister.this, HomeMenu.class);//현재,이동 적기
+                    startActivity(intent1);
 
                 }
+
+
             });
 
-
-            /*@POST("/api/v1/sugars")
-            Call<SendBloodRecord> sendBloodRecord(@Body SendBloodRecord sendBloodRecord);*/
-
-
         }
+
 }
