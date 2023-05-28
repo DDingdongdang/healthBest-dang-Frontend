@@ -23,6 +23,7 @@
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:text="영양성분 조회"
+        android:backgroundTint="#CCE2CB"
         android:onClick="mOnClick"
         />
 
@@ -74,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
+                android:backgroundTint="#86CFB6"
                 android:text="수정"/>
 
 
@@ -107,6 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
+                android:backgroundTint="#86CFB6"
                 android:text="수정"/>
 
 
@@ -150,6 +153,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#8FCACA"
         android:text="등록"
         android:onClick="mOnClick"
         />
