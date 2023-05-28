@@ -12,14 +12,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.blood.api.BRestApi;
+import com.example.dangdiary.diet.api.RestApi;
+import com.example.dangdiary.diet.dto.FoodInfo;
 import com.example.dangdiary.diet.java.FoodView;
 import com.example.dangdiary.menu.BloodOrFood;
 import com.example.dangdiary.menu.HomeMenu;
 import com.example.dangdiary.menu.MyPage;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BloodView extends AppCompatActivity {
 
@@ -38,6 +49,12 @@ public class BloodView extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ArrayList<BloodViewItem> mList;
     private BloodViewAdapter mRecyclerViewAdapter;
+
+    private BRestApi jsonPlaceHolderApi;
+
+
+    String myMealType;
+    String myMealTime;
 
 
     // 현재 날짜 표시해주는 메소드
@@ -121,13 +138,81 @@ public class BloodView extends AppCompatActivity {
             addItem("아침","식전",8,40, 260);
         }
 
+
+
+
         System.out.print(mList);
 
         mRecyclerViewAdapter = new BloodViewAdapter(mList);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
+        Gson gson = new GsonBuilder().setLenient().create();
+        Retrofit retrofit = new Retrofit.Builder() //retorfit 인스턴스 생성
+                .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
+                .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
+                .build(); //Retrofit인스턴스를 만들고 반환
+
+
+
+
+
+        jsonPlaceHolderApi = retrofit.create(BRestApi.class);
+
+
+
+        /*Call<BloodViewItem> call = jsonPlaceHolderApi.requestBlood(year,month,day); //이름을 보내고
+        //BloodViewItem를 받아온다.
+        call.enqueue(new Callback<BloodViewItem>() {
+            @Override
+            public void onResponse(Call<BloodViewItem> call, Response<BloodViewItem> response) {
+                if (response.isSuccessful()) {
+                    BloodViewItem bloodViewItem = response.body();
+
+                    *//*myMealType = BloodViewItem.setMealType();
+                    myMealTime = BloodViewItem.setMealTime();*//*
+
+                    public void addItem(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
+                        BloodViewItem item = new BloodViewItem();
+                        item.setMealType(mealType);
+                        item.setMealTime(mealTime);
+                        item.setDate_hour(date_hour);
+                        item.setDate_minute(date_minute);
+                        item.setSugar(sugar);
+
+                        mList.add(item);
+                    }
+
+
+
+
+                    // 받은 응답을 처리하는 로직 작성
+                    String result = "" +
+                            "이름: " + foodInfo.getName() + "\n" +
+                            "칼로리: " + foodInfo.getCalorie() + "\n" +
+                            "탄수화물: " + foodInfo.getCarbohydrate() + "\n" +
+                            "단백질: " + foodInfo.getProtein() + "\n" +
+                            "지방: " + foodInfo.getFat() + "\n" +
+                            "당류: " + foodInfo.getSugars() + "\n" +
+                            "나트륨: " + foodInfo.getSodium();
+
+                    textViewResult.setText(result);
+                } else {
+                    textViewResult.setText("Code: " + response.code());
+                }
+            }
+            @Override
+            public void onFailure(Call<BloodViewItem> call, Throwable t) {
+
+            }
+        });*/
+
+
     }
+
+    //spring에서 실제로 값을 받는 부분
 
     public void addItem(String mealType, String mealTime, int date_hour, int date_minute, int sugar){
         BloodViewItem item = new BloodViewItem();
@@ -139,6 +224,8 @@ public class BloodView extends AppCompatActivity {
 
         mList.add(item);
     }
+
+
 
 
 

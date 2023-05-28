@@ -104,9 +104,6 @@ public class WriteFood extends AppCompatActivity {
 
 
 
-
-
-
     private RestApi jsonPlaceHolderApi;
 
 
@@ -236,7 +233,6 @@ public class WriteFood extends AppCompatActivity {
                 .baseUrl("http://43.201.18.52:8080")//서버를 돌릴 ip주소 : port번호
                 .addConverterFactory(GsonConverterFactory.create(gson)) //json 데이터를 자바 객체로 변환
                 .build(); //Retrofit인스턴스를 만들고 반환
-
 
 
 
