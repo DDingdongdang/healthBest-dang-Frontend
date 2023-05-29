@@ -127,10 +127,9 @@ public class HomeMenu extends AppCompatActivity {
         bRecyclerView = (RecyclerView)findViewById(R.id.todayBloodSugar_recyclerView);
         bList = new ArrayList<>();
         // recyclerView에 넣어줄 값들
-            for(int i = 0; i<5; i++){
+        for(int i = 0; i<5; i++){
             addItem1("아침","식전",8,40, 260);
         }
-
         System.out.print(bList);
 
         bRecyclerViewAdapter = new HomeBloodSugarViewAdapter(bList);
@@ -143,6 +142,7 @@ public class HomeMenu extends AppCompatActivity {
         for(int i = 0; i<5; i++){
             addItem2("아침","미역국",300, 20.3);
         }
+
 
         System.out.print(fList);
 

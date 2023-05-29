@@ -1,9 +1,9 @@
 package com.example.dangdiary.diet.java;
 
 public class FoodViewItem {
-    private String food_photo;
+    private int food_photo;
     private String mealType;
-    //private LocalDateTime inputTime;
+    private String date_hour;
     private String menuName;
     private double foodSugar;
     private double carbon;
@@ -23,6 +23,13 @@ public class FoodViewItem {
     public void setMenuName(String menuName) {
         this.menuName = menuName;
     }
+    public String getDate_hour() {
+        return date_hour;
+    }
+
+    public void setDate_hour(String date_hour) {
+        this.date_hour = date_hour;
+    }
 
     public double getFoodSugar() {
         return foodSugar;
@@ -35,23 +42,12 @@ public class FoodViewItem {
     public double getCarbon() { return carbon;}
     public void setCarbon(double carbon) { this.carbon = carbon;}
 
-    public String getFood_photo() {
+    public int getFood_photo() {
         return food_photo;
     }
 
-    public void setFood_photo(String food_photo) {
+    public void setFood_photo(int food_photo) {
         this.food_photo = food_photo;
     }
-
-
-
-//    public void setInputTime(LocalDateTime inputTime){
-//        this.inputTime = inputTime;
-//    }
-//    public LocalDateTime getInputTime(){
-//        return this.inputTime;
-//    }
-
-
 
 }

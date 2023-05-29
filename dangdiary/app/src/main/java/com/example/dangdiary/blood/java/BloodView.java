@@ -117,9 +117,10 @@ public class BloodView extends AppCompatActivity {
         mRecyclerView = (RecyclerView)findViewById(R.id.todayBloodSugar_recyclerView);
         mList = new ArrayList<>();
         // recyclerView에 넣어줄 값들
-        for(int i = 0; i<5; i++){
-            addItem("아침","식전",8,40, 260);
-        }
+//        for(int i = 0; i<5; i++){
+//            addItem("아침","식전",8,40, 260);
+//        }
+
 
         System.out.print(mList);
 

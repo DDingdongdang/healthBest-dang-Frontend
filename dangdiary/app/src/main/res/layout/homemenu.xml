@@ -125,7 +125,7 @@
                 android:id="@+id/ate_sugar_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="몇" />
+                android:text="35" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
                 android:id="@+id/max_bloodsugar_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="몇" />
+                android:text="170" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -18,8 +18,8 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView food_photo;
         TextView mealType;
-        //private LocalDateTime inputTime;
         TextView menuName;
+        TextView date_hour;
         TextView foodSugar;
         TextView carbon;
 
@@ -30,6 +30,7 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
             food_photo = (ImageView) itemView.findViewById(R.id.food_photo);
             mealType = (TextView) itemView.findViewById(R.id.mealType);
             menuName = (TextView) itemView.findViewById(R.id.menuName);
+            date_hour = (TextView) itemView.findViewById(R.id.date_hour);
             foodSugar = (TextView) itemView.findViewById(R.id.foodSugar);
             carbon = (TextView) itemView.findViewById(R.id.carbon);
 
@@ -59,9 +60,11 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FoodViewItem item = mList.get(position);
 
-        holder.food_photo.setImageResource(R.drawable.ic_launcher_background);   // 사진 없어서 기본 파일로 이미지 띄움
+        //holder.food_photo.setImageResource(R.drawable.bulgogi);
+        holder.food_photo.setImageResource(item.getFood_photo());
         holder.menuName.setText(item.getMenuName());
         holder.mealType.setText(item.getMealType());
+        holder.date_hour.setText(item.getDate_hour());
         holder.foodSugar.setText(String.valueOf(item.getFoodSugar()));
         holder.carbon.setText(String.valueOf(item.getCarbon()));
     }
