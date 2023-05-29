@@ -1,4 +1,4 @@
-package com.example.dangdiary.menu;
+package com.example.dangdiary.auth.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.menu.HomeMenu;
 
 public class MainActivity extends AppCompatActivity {
 

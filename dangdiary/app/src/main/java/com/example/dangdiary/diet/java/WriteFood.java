@@ -63,10 +63,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.dangdiary.R;
+import com.example.dangdiary.blood.dto.BloodCreateResponse;
+import com.example.dangdiary.blood.dto.BloodTime;
+import com.example.dangdiary.blood.dto.SendBloodRecord;
 import com.example.dangdiary.blood.java.BloodRegister;
 import com.example.dangdiary.diet.api.RestApi;
 import com.example.dangdiary.diet.dto.FoodInfo;
+import com.example.dangdiary.diet.dto.FoodTime;
 import com.example.dangdiary.diet.dto.SendFoodName;
+import com.example.dangdiary.diet.dto.SendFoodRecord;
 import com.example.dangdiary.menu.BloodOrFood;
 import com.example.dangdiary.menu.HomeMenu;
 import com.google.gson.Gson;
@@ -92,6 +97,10 @@ public class WriteFood extends AppCompatActivity {
     TextView present_time; // 입력된 시간 저장되는 곳
     Button datePicker_btn;
     Button timePicker_btn;
+
+
+
+
     EditText bloodsugar_editText;
 
     Button bloodsugar_register_button;
@@ -100,6 +109,12 @@ public class WriteFood extends AppCompatActivity {
     String selected_time;
     RadioGroup eatOrNot_radioGroup;
     String selected_eatORNot;
+
+    int mYear;
+    int mMonth;
+    int mDay;
+    int mHour;
+    int mMinute;
 
 
 
@@ -240,7 +255,6 @@ public class WriteFood extends AppCompatActivity {
 
 
 
-
         jsonPlaceHolderApi = retrofit.create(RestApi.class);
 
         //뷰 초기화
@@ -251,6 +265,10 @@ public class WriteFood extends AppCompatActivity {
 
 
         btn_register.setOnClickListener(new View.OnClickListener() {
+
+
+            FoodTime time = new FoodTime(mYear, mMonth, mDay, mHour, mMinute);
+
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(WriteFood.this, HomeMenu.class);//현재,이동 적기

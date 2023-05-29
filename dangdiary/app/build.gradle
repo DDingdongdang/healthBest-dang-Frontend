@@ -38,6 +38,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     //request/response를 json에서 gson형태로 바꿔주는 라이브러리
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+
     //implementation 'com.google.code.gson:gson:2.8.9' 위에것과 충돌 일어날 수 있음
 
 

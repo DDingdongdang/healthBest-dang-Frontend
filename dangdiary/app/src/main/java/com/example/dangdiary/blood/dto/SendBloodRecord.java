@@ -20,33 +20,12 @@ public class SendBloodRecord {
     private String mealtime;
 
 
+
     @SerializedName("sugar")
     @Expose
     private int sugar;
 
 
-//    public class Time {
-//        @SerializedName("year")
-//        @Expose
-//        private int year;
-//
-//        @SerializedName("month")
-//        @Expose
-//        private int month;
-//
-//        @SerializedName("day")
-//        @Expose
-//        private int day;
-//
-//        @SerializedName("hour")
-//        @Expose
-//        private int hour;
-//
-//        @SerializedName("minute")
-//        @Expose
-//        private int minute;
-//        // Getters and setters for Time fields
-//    }
 
     public SendBloodRecord(BloodTime time, String mealtype, String mealtime, int sugar) {
         this.time = time;
@@ -54,5 +33,15 @@ public class SendBloodRecord {
         this.mealtime = mealtime;
         this.sugar = sugar;
     }
+
+    /*private BloodTime time;
+    private String mealtype;
+    private String mealtime;
+    private int sugar;*/
+
+
+
+
+
 }
 
